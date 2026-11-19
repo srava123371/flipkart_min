@@ -1,19 +1,31 @@
 
 from pathlib import Path
 
-# Base directory of the project
+# ==================================================
+# BASE DIRECTORY
+# ==================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Security settings
+# ==================================================
+# SECURITY SETTINGS
+# ==================================================
+
 SECRET_KEY = 'django-insecure-change-this-key-for-production'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+]
 
 
-# Installed applications
+# ==================================================
+# INSTALLED APPLICATIONS
+# ==================================================
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,12 +34,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Add your own app here, for example:
-    # 'your_app',
+    # Your Django application
+    'kart',
 ]
 
 
-# Middleware
+# ==================================================
+# MIDDLEWARE
+# ==================================================
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -39,16 +54,23 @@ MIDDLEWARE = [
 ]
 
 
-# Main URL configuration
+# ==================================================
+# URL CONFIGURATION
+# ==================================================
+
 ROOT_URLCONF = 'tenmproject.urls'
 
 
-# Templates configuration
+# ==================================================
+# TEMPLATES CONFIGURATION
+# ==================================================
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        # Templates folder beside manage.py
+        # index.html location:
+        # tenmproject/templates/index.html
         'DIRS': [BASE_DIR / 'templates'],
 
         'APP_DIRS': True,
@@ -65,11 +87,17 @@ TEMPLATES = [
 ]
 
 
-# WSGI application
+# ==================================================
+# WSGI CONFIGURATION
+# ==================================================
+
 WSGI_APPLICATION = 'tenmproject.wsgi.application'
 
 
-# Database configuration
+# ==================================================
+# DATABASE CONFIGURATION
+# ==================================================
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -78,7 +106,10 @@ DATABASES = {
 }
 
 
-# Password validation
+# ==================================================
+# PASSWORD VALIDATION
+# ==================================================
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': (
@@ -107,7 +138,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# ==================================================
+# LANGUAGE AND TIME ZONE
+# ==================================================
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Kolkata'
@@ -117,13 +151,45 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, images)
+# ==================================================
+# STATIC FILES
+# ==================================================
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Default primary key field type
+
+# ==================================================
+# DEFAULT PRIMARY KEY
+# ==================================================
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ==================================================
+# GMAIL SMTP EMAIL CONFIGURATION
+# ==================================================
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+# Enter your actual Gmail address
+EMAIL_HOST_USER = 'gavvesravani21@gmail.com'
+
+# Enter your Google-generated 16-character App Password
+# Do not enter your regular Gmail password
+EMAIL_HOST_PASSWORD = 'guhc ccuv kyve bzju'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+EMAIL_TIMEOUT = 20
