@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart Tenmin | Shop Smart</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --blue: #1769e0;
+    --navy: #102746;
+    --ink: #182230;
+    --muted: #6b7280;
+    --line: #e8edf3;
+    --bg: #f5f7fb;
+    --green: #087f5b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.topline {
+    background: #0c2340;
+    color: #dbeafe;
+    text-align: center;
+    padding: 9px;
+    font-size: 12px;
+}
+
+.topline strong {
+    color: white;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: white;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 3px 16px #152b480a;
+}
+
+.nav-inner {
+    max-width: 1240px;
+    margin: auto;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 25px;
+    color: var(--blue);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #f59e0b;
+}
+
+.search {
+    display: flex;
+    flex: 1;
+    background: #f1f5fb;
+    border-radius: 12px;
+    padding: 5px;
+    align-items: center;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    padding: 10px;
+    width: 100%;
+    min-width: 60px;
+}
+
+.search button {
+    border: 0;
+    background: var(--blue);
+    color: white;
+    border-radius: 9px;
+    padding: 10px 15px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn {
+    border: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: #f1f5fb;
+}
+
+.cart-count {
+    display: inline-grid;
+    place-items: center;
+    background: #ff6b35;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+}
+
+.category-nav {
+    background: white;
+    border-bottom: 1px solid var(--line);
+}
+
+.category-inner {
+    max-width: 1240px;
+    margin: auto;
+    display: flex;
+    gap: 9px;
+    padding: 10px 22px;
+    overflow-x: auto;
+}
+
+.cat-btn {
+    white-space: nowrap;
+    border: 1px solid transparent;
+    background: #f5f7fb;
+    border-radius: 99px;
+    padding: 9px 15px;
+    color: #344054;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cat-btn.active,
+.cat-btn:hover {
+    background: #e8f1ff;
+    color: var(--blue);
+    border-color: #cfe0ff;
+}
+
+.container {
+    max-width: 1240px;
+    margin: auto;
+    padding: 24px 22px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    background: linear-gradient(115deg, #102746, #164b91, #3686ed);
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 320px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    color: white;
+}
+
+.hero-copy {
+    padding: 40px;
+}
+
+.eyebrow {
+    display: inline-block;
+    background: #ffffff20;
+    border: 1px solid #ffffff30;
+    border-radius: 99px;
+    padding: 8px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 4vw, 55px);
+    line-height: 1.08;
+    margin: 18px 0 14px;
+}
+
+.hero p {
+    color: #d8e8ff;
+    line-height: 1.7;
+}
+
+.hero-cta {
+    border: 0;
+    background: #ffbf47;
+    color: #1b2a40;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 800;
+    margin-top: 12px;
+}
+
+.hero-image {
+    height: 100%;
+    min-height: 300px;
+    background: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1000') center/cover;
+}
+
+/* BENEFITS */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0 30px;
+}
+
+.benefit {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.benefit-icon {
+    font-size: 23px;
+}
+
+.benefit strong {
+    display: block;
+    font-size: 13px;
+}
+
+.benefit small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* PRODUCT SECTION */
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 30px 0 18px;
+}
+
+.section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    margin: 0;
+}
+
+.section-head p {
+    color: var(--muted);
+    margin: 6px 0 0;
+    font-size: 13px;
+}
+
+.section-link {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    padding: 12px;
+    min-width: 0;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px #172b4612;
+}
+
+.product-image-wrap {
+    position: relative;
+    background: #f4f6f9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    display: block;
+    object-fit: cover;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e5f8ed;
+    color: #087f5b;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.wishlist {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    font-size: 19px;
+}
+
+.product-card h3 {
+    font-size: 14px;
+    margin: 13px 2px 7px;
+    min-height: 36px;
+}
+
+.rating {
+    font-size: 11px;
+    color: #667085;
+    margin: 0 2px 10px;
+}
+
+.rating span {
+    background: #13865c;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #172b46;
+}
+
+.old-price {
+    font-size: 12px;
+    color: #98a2b3;
+    text-decoration: line-through;
+}
+
+.product-bottom {
+    display: flex;
+    gap: 7px;
+}
+
+.add-btn {
+    flex: 1;
+    border: 0;
+    border-radius: 9px;
+    background: var(--blue);
+    color: white;
+    padding: 10px 7px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.add-btn:hover {
+    background: #0d51b8;
+}
+
+.buy-btn {
+    border: 1px solid #d9e5f7;
+    background: white;
+    color: var(--blue);
+    border-radius: 9px;
+    padding: 9px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    background: white;
+    padding: 35px;
+    text-align: center;
+    border-radius: 14px;
+    color: var(--muted);
+}
+
+/* PROMOTION */
+
+.promo {
+    margin: 30px 0;
+    background: #fff3df;
+    border: 1px solid #ffe3b5;
+    border-radius: 18px;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.promo h3 {
+    margin: 0 0 5px;
+}
+
+.promo p {
+    margin: 0;
+    color: #7c5b2b;
+    font-size: 13px;
+}
+
+.promo a {
+    background: #172b46;
+    color: white;
+    text-decoration: none;
+    padding: 11px 16px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+/* COLLECTIONS */
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.collection {
+    height: 190px;
+    border-radius: 17px;
+    overflow: hidden;
+    position: relative;
+    background: #dbeafe;
+}
+
+.collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collection:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #0b1e38c9, transparent 75%);
+}
+
+.collection-text {
+    position: absolute;
+    z-index: 1;
+    bottom: 18px;
+    left: 18px;
+    color: white;
+}
+
+.collection-text strong {
+    font-size: 19px;
+    display: block;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+    background: #112b4d;
+    color: white;
+    border-radius: 22px;
+    padding: 32px;
+    margin: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 8px;
+}
+
+.newsletter p {
+    color: #c7d7ed;
+    margin: 0;
+    font-size: 13px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 8px;
+    width: min(440px, 100%);
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    border-radius: 9px;
+    padding: 12px;
+}
+
+.newsletter-form button {
+    border: 0;
+    background: #ffbf47;
+    border-radius: 9px;
+    padding: 12px 15px;
+    font-weight: 800;
+}
+
+/* FOOTER */
+
+.footer {
+    background: white;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+}
+
+.footer-inner {
+    max-width: 1240px;
+    margin: auto;
+    padding: 34px 22px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 28px;
+}
+
+.footer h4 {
+    margin: 0 0 13px;
+}
+
+.footer p,
+.footer a {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    text-decoration: none;
+    display: block;
+}
+
+.copyright {
+    border-top: 1px solid var(--line);
+    padding: 16px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 120px);
+    opacity: 0;
+    background: #102746;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 12px;
+    z-index: 60;
+    transition: .25s;
+    font-size: 13px;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* CART DRAWER */
+
+.drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: #0b172b77;
+    z-index: 39;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.drawer-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cart-drawer {
+    position: fixed;
+    z-index: 40;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(420px, 100%);
+    background: white;
+    transform: translateX(105%);
+    transition: .25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open {
+    transform: translateX(0);
+}
+
+.drawer-head {
+    padding: 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-head h3 {
+    margin: 0;
+}
+
+.close-btn {
+    border: 0;
+    background: #f1f5fb;
+    border-radius: 8px;
+    padding: 8px 11px;
+}
+
+.cart-items {
+    padding: 16px;
+    overflow: auto;
+    flex: 1;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    padding: 13px 0;
+}
+
+.cart-item strong {
+    display: block;
+    font-size: 14px;
+}
+
+.cart-item small {
+    color: var(--muted);
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 9px;
+}
+
+.qty-controls button {
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 6px;
+    width: 26px;
+    height: 26px;
+}
+
+.remove-btn {
+    border: 0;
+    color: #c0392b;
+    background: transparent;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.cart-total {
+    padding: 18px;
+    border-top: 1px solid var(--line);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.checkout-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    background: var(--green);
+    color: white;
+    padding: 13px;
+    font-weight: 800;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 35px 10px;
+    color: var(--muted);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 950px) {
+    .nav-inner {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .nav-inner {
+        padding: 12px 14px;
+    }
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .container {
+        padding: 17px 14px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy {
+        padding: 28px 24px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-image {
+        min-height: 180px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product-card {
+        padding: 8px;
+    }
+
+    .product-card img {
+        height: 145px;
+    }
+
+    .product-card h3 {
+        font-size: 12px;
+        min-height: 32px;
+    }
+
+    .price {
+        font-size: 15px;
+    }
+
+    .benefits {
+        gap: 8px;
+    }
+
+    .benefit {
+        padding: 11px;
+    }
+
+    .promo {
+        padding: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collection {
+        height: 165px;
+    }
+
+    .newsletter {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .footer-inner > div:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media(max-width: 360px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card img {
+        height: 210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline">
+    ✨ <strong>MEGA SAVINGS WEEK</strong> — Deals you love, delivered to your door
+</div>
+
+<header class="navbar">
+    <div class="nav-inner">
+        <a class="brand" href="#">
+            flipkart<span> tenmin</span>
+        </a>
+
+        <div class="search">
+            <input id="searchInput" type="search"
+                   placeholder="Search products, brands and more..."
+                   aria-label="Search products">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div class="nav-actions">
+            <button class="nav-btn"
+                    onclick="showToast('Connect Django authentication to enable accounts.')">
+                👤 Login
+            </button>
+
+            <button class="nav-btn" onclick="openCart()">
+                🛒 Cart <span id="cartCount" class="cart-count">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<nav class="category-nav">
+    <div class="category-inner">
+        <button class="cat-btn active" data-category="all">✨ All Products</button>
+        <button class="cat-btn" data-category="mobiles">📱 Mobiles</button>
+        <button class="cat-btn" data-category="electronics">🎧 Electronics</button>
+        <button class="cat-btn" data-category="fashion">👟 Fashion</button>
+        <button class="cat-btn" data-category="home">🏡 Home & Living</button>
+        <button class="cat-btn" data-category="beauty">🌸 Beauty</button>
+        <button class="cat-btn" data-category="fitness">🏋️ Fitness</button>
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="hero-copy">
+            <span class="eyebrow">Your everyday marketplace</span>
+            <h1>Good finds.<br>Better prices.</h1>
+            <p>
+                Discover everyday essentials, trending tech and fresh styles
+                — all in one beautiful shopping destination.
+            </p>
+            <button class="hero-cta"
+                    onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+                Explore products →
+            </button>
+        </div>
+
+        <div class="hero-image" role="img" aria-label="Red sports shoe"></div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit">
+            <span class="benefit-icon">🚚</span>
+            <div><strong>Fast delivery</strong><small>Quick doorstep delivery</small></div>
+        </div>
+        <div class="benefit">
+            <span class="benefit-icon">↩️</span>
+            <div><strong>Easy returns</strong><small>Simple return experience</small></div>
+        </div>
+        <div class="benefit">
+            <span class="benefit-icon">🔒</span>
+            <div><strong>Secure shopping</strong><small>Shop with confidence</small></div>
+        </div>
+        <div class="benefit">
+            <span class="benefit-icon">💬</span>
+            <div><strong>Helpful support</strong><small>We're here to help</small></div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="section-head">
+            <div>
+                <h2>Explore our products</h2>
+                <p>Fresh picks, standout deals and everyday favourites.</p>
+            </div>
+            <a class="section-link" href="#products" onclick="setCategory('all')">
+                View all products ↗
+            </a>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="promo">
+        <div>
+            <h3>⚡ Little prices. Big happiness.</h3>
+            <p>Discover limited-time offers across tech, fashion and home essentials.</p>
+        </div>
+        <a href="#products" onclick="setCategory('electronics')">
+            Shop electronics →
+        </a>
+    </section>
+
+    <section>
+        <div class="section-head">
+            <div>
+                <h2>Shop by mood</h2>
+                <p>Find something perfect for every part of your day.</p>
+            </div>
+        </div>
+
+        <div class="collection-grid">
+            <a class="collection" href="#products" onclick="setCategory('electronics')">
+                <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700"
+                     alt="Electronics collection">
+                <span class="collection-text">
+                    <strong>Tech & gadgets</strong>
+                    <small>Power up your everyday →</small>
+                </span>
+            </a>
+
+            <a class="collection" href="#products" onclick="setCategory('fashion')">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700"
+                     alt="Fashion collection">
+                <span class="collection-text">
+                    <strong>Style refresh</strong>
+                    <small>Make it your look →</small>
+                </span>
+            </a>
+
+            <a class="collection" href="#products" onclick="setCategory('home')">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700"
+                     alt="Home collection">
+                <span class="collection-text">
+                    <strong>Home comforts</strong>
+                    <small>Make room for cosy →</small>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div>
+            <h2>A little joy in your inbox</h2>
+            <p>Get updates about new arrivals and special offers.</p>
+        </div>
+
+        <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="emailInput"
+                   placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <a class="brand" href="#">flipkart<span> tenmin</span></a>
+            <p>Your everyday marketplace for smart finds, fresh styles and products that make life easier.</p>
+        </div>
+
+        <div>
+            <h4>Shop</h4>
+            <a href="#products" onclick="setCategory('mobiles')">Mobiles</a>
+            <a href="#products" onclick="setCategory('electronics')">Electronics</a>
+            <a href="#products" onclick="setCategory('fashion')">Fashion</a>
+            <a href="#products" onclick="setCategory('home')">Home & Living</a>
+        </div>
+
+        <div>
+            <h4>Help</h4>
+            <a href="#" onclick="showToast('Help centre demo')">Help Centre</a>
+            <a href="#" onclick="showToast('Returns information demo')">Returns</a>
+            <a href="#" onclick="showToast('Order tracking requires backend integration')">Track Order</a>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>Customer care<br>support@flipkarttenmin.example</p>
+            <p>Secure checkout · Happy shopping</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Flipkart Tenmin demo store. Product prices and checkout are for demonstration only.
+    </div>
+</footer>
+
+<div id="toast" class="toast" role="status"></div>
+
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeCart()"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+        <h3>🛒 Your cart</h3>
+        <button class="close-btn" onclick="closeCart()">✕ Close</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-total">
+        <div class="total-row">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">
+            Continue to checkout →
+        </button>
+    </div>
+</aside>
+
+<script>
+const products = [
+    {id:1, name:'Wireless Headphones', category:'electronics', price:1499, old:2499, rating:'4.5', badge:'40% OFF', image:'photo-1505740420928-5e560c06d30e'},
+    {id:2, name:'Premium Smart Watch', category:'electronics', price:2199, old:3999, rating:'4.4', badge:'45% OFF', image:'photo-1523275335684-37898b6baf30'},
+    {id:3, name:'Red Sports Shoes', category:'fashion', price:1299, old:2499, rating:'4.6', badge:'48% OFF', image:'photo-1542291026-7eec264c27ff'},
+    {id:4, name:'Smart LED Television', category:'electronics', price:18999, old:29999, rating:'4.7', badge:'37% OFF', image:'photo-1593359677879-a4bb92f829d1'},
+    {id:5, name:"Women's Premium Handbag", category:'fashion', price:999, old:1799, rating:'4.3', badge:'44% OFF', image:'photo-1548036328-c9fa89d128fa'},
+    {id:6, name:'Modern Study Chair', category:'home', price:3499, old:5499, rating:'4.5', badge:'36% OFF', image:'photo-1503602642458-232111445657'},
+    {id:7, name:'Classic Cotton T-Shirt', category:'fashion', price:399, old:799, rating:'4.2', badge:'50% OFF', image:'photo-1521572163474-6864f9cf17ab'},
+    {id:8, name:'Wireless Bluetooth Earbuds', category:'electronics', price:899, old:1999, rating:'4.4', badge:'55% OFF', image:'photo-1583394838336-acd977736f90'},
+    {id:9, name:'Elegant Home Decor', category:'home', price:799, old:1499, rating:'4.3', badge:'47% OFF', image:'photo-1616486338812-3dadae4b4ace'},
+    {id:10, name:'Ultra Slim Laptop', category:'electronics', price:42999, old:54999, rating:'4.8', badge:'22% OFF', image:'photo-1496181133206-80ce9b88a853'},
+    {id:11, name:'Casual Sneakers', category:'fashion', price:1599, old:2999, rating:'4.5', badge:'47% OFF', image:'photo-1549298916-b41d501d3772'},
+    {id:12, name:'Modern Table Lamp', category:'home', price:649, old:1199, rating:'4.1', badge:'46% OFF', image:'photo-1507473885765-e6ed057f782c'},
+    {id:13, name:'Smartphone Pro', category:'mobiles', price:24999, old:31999, rating:'4.7', badge:'22% OFF', image:'photo-1511707171634-5f897ff02aa9'},
+    {id:14, name:'Everyday Android Phone', category:'mobiles', price:12999, old:16999, rating:'4.4', badge:'24% OFF', image:'photo-1598327105666-5b89351aff97'},
+    {id:15, name:'Portable Bluetooth Speaker', category:'electronics', price:1299, old:2199, rating:'4.3', badge:'41% OFF', image:'photo-1608043152269-423dbba4e7e1'},
+    {id:16, name:'Digital Camera', category:'electronics', price:32999, old:39999, rating:'4.6', badge:'17% OFF', image:'photo-1516035069371-29a1b244cc32'},
+    {id:17, name:'Gaming Controller', category:'electronics', price:2499, old:3499, rating:'4.5', badge:'28% OFF', image:'photo-1605901309584-818e25960a8f'},
+    {id:18, name:'Laptop Backpack', category:'fashion', price:899, old:1499, rating:'4.2', badge:'40% OFF', image:'photo-1553062407-98eeb64c6a62'},
+    {id:19, name:'Classic Sunglasses', category:'fashion', price:599, old:999, rating:'4.1', badge:'40% OFF', image:'photo-1511499767150-a48a237f0083'},
+    {id:20, name:'Running Fitness Shoes', category:'fashion', price:1799, old:2799, rating:'4.5', badge:'36% OFF', image:'photo-1460353581641-37b7e2d7a0a4'},
+    {id:21, name:'Face Care Essentials', category:'beauty', price:499, old:799, rating:'4.3', badge:'38% OFF', image:'photo-1608248543803-ba4f8c70ae0b'},
+    {id:22, name:'Skincare Serum', category:'beauty', price:699, old:999, rating:'4.4', badge:'30% OFF', image:'photo-1601049541289-9b1b7bbbfe19'},
+    {id:23, name:'Yoga Mat', category:'fitness', price:799, old:1299, rating:'4.5', badge:'38% OFF', image:'photo-1592432678016-e910b452f9a2'},
+    {id:24, name:'Fitness Dumbbells', category:'fitness', price:1199, old:1799, rating:'4.4', badge:'33% OFF', image:'photo-1583454110551-21f2fa2afe61'}
+];
+
+const money = n => '₹' + n.toLocaleString('en-IN');
+
+let activeCategory = 'all';
+let cart = {};
+let toastTimer;
+
+function renderProducts() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    const shown = products.filter(p =>
+        (activeCategory === 'all' || p.category === activeCategory) &&
+        p.name.toLowerCase().includes(query)
+    );
+
+    const grid = document.getElementById('productGrid');
+
+    if (!shown.length) {
+        grid.innerHTML = '<div class="empty-state">No products found. Try another search or category.</div>';
+        return;
+    }
+
+    grid.innerHTML = shown.map(p => `
+        <article class="product-card">
+            <div class="product-image-wrap">
+                <img loading="lazy"
+                     src="https://images.unsplash.com/${p.image}?auto=format&fit=crop&w=600&q=80"
+                     alt="${p.name}"
+                     onerror="this.onerror=null;this.src='https://placehold.co/600x450/eaf1fb/1769e0?text=Product'">
+
+                <span class="discount">${p.badge}</span>
+
+                <button class="wishlist"
+                        aria-label="Add ${p.name} to wishlist"
+                        onclick="wishlist('${p.name}')">♡</button>
+            </div>
+
+            <h3>${p.name}</h3>
+
+            <p class="rating">
+                <span>★ ${p.rating}</span> Great choice
+            </p>
+
+            <div class="price-row">
+                <span class="price">${money(p.price)}</span>
+                <span class="old-price">${money(p.old)}</span>
+            </div>
+
+            <div class="product-bottom">
+                <button class="add-btn" onclick="addToCart(${p.id})">
+                    ＋ Add to cart
+                </button>
+
+                <button class="buy-btn" onclick="buyNow(${p.id})">
+                    Buy
+                </button>
+            </div>
+        </article>
+    `).join('');
+}
+
+function setCategory(category) {
+    activeCategory = category;
+
+    document.querySelectorAll('.cat-btn').forEach(button => {
+        button.classList.toggle('active', button.dataset.category === category);
+    });
+
+    renderProducts();
+}
+
+document.querySelectorAll('.cat-btn').forEach(button => {
+    button.addEventListener('click', () => setCategory(button.dataset.category));
+});
+
+document.getElementById('searchInput').addEventListener('input', renderProducts);
+document.getElementById('searchBtn').addEventListener('click', renderProducts);
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2600);
+}
+
+function addToCart(id) {
+    cart[id] = (cart[id] || 0) + 1;
+
+    updateCart();
+
+    const product = products.find(p => p.id === id);
+    showToast(product.name + ' added to your cart');
+}
+
+function wishlist(name) {
+    showToast(name + ' added to your wishlist ♡');
+}
+
+function buyNow(id) {
+    addToCart(id);
+    openCart();
+}
+
+function updateCart() {
+    const count = Object.values(cart).reduce((a, b) => a + b, 0);
+
+    document.getElementById('cartCount').textContent = count;
+
+    const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
+
+    const itemsContainer = document.getElementById('cartItems');
+
+    if (!entries.length) {
+        itemsContainer.innerHTML = `
+            <div class="cart-empty">
+                🛍️
+                <h3>Your cart is empty</h3>
+                <p>Add something you love to get started.</p>
+            </div>
+        `;
+    } else {
+        itemsContainer.innerHTML = entries.map(([id, quantity]) => {
+            const product = products.find(p => p.id === Number(id));
+
+            return `
+                <div class="cart-item">
+                    <div>
+                        <strong>${product.name}</strong>
+                        <small>${money(product.price)} each</small>
+
+                        <div class="qty-controls">
+                            <button onclick="changeQty(${id}, -1)">−</button>
+                            <span>${quantity}</span>
+                            <button onclick="changeQty(${id}, 1)">+</button>
+                        </div>
+
+                        <button class="remove-btn" onclick="removeItem(${id})">
+                            Remove
+                        </button>
+                    </div>
+
+                    <strong>${money(product.price * quantity)}</strong>
+                </div>
+            `;
+        }).join('');
+    }
+
+    const total = entries.reduce((sum, [id, quantity]) => {
+        const product = products.find(p => p.id === Number(id));
+        return sum + product.price * quantity;
+    }, 0);
+
+    document.getElementById('cartTotal').textContent = money(total);
+}
+
+function changeQty(id, change) {
+    cart[id] = (cart[id] || 0) + change;
+
+    if (cart[id] <= 0) {
+        delete cart[id];
+    }
+
+    updateCart();
+}
+
+function removeItem(id) {
+    delete cart[id];
+
+    updateCart();
+
+    showToast('Item removed from cart');
+}
+
+function openCart() {
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('drawerBackdrop').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('drawerBackdrop').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function checkout() {
+    if (!Object.keys(cart).length) {
+        showToast('Your cart is empty');
+        return;
+    }
+
+    showToast('Demo checkout only — connect Django orders and payments to finish checkout.');
+}
+
+document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    showToast('Thanks for subscribing! Connect Django to save subscribers.');
+
+    this.reset();
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCart();
+    }
+});
+
+renderProducts();
+updateCart();
+</script>
+
+</body>
+</html>
